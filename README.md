@@ -31,7 +31,7 @@ To reference a property from `config`, use the following syntax in format: `((pr
 
 This reference will be replaced by a random value composed of chars from `config[property]` , and it will have the length equal to `config[property]`.
 
-You can define the length yourself using this syntax: `((property)length)`
+You can define the length yourself using this syntax: `((property)length)`.
 
 ```
 var config = {ex: '123'};
