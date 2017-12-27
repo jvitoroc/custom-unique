@@ -1,10 +1,8 @@
-var __TYPE_OF_U = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
         // AMD. Register as an anonymous module.
         define([], factory);
-    } else if ((typeof module === 'undefined' ? 'undefined' : __TYPE_OF_U(module)) === 'object' && module.exports) {
+    } else if (typeof module === 'object' && module.exports) {
         // Node. Does not work with strict CommonJS, but
         // only CommonJS-like environments that support module.exports,
         // like Node.
@@ -18,7 +16,7 @@ var __TYPE_OF_U = typeof Symbol === "function" && typeof Symbol.iterator === "sy
     'use strict';
 
     var REGEX = /\(\(\s*([^\(\)]*)\s*\)(\d*)?\)/g;
-    var hasOwnProperty = Object.prototype.hasOwnProperty;
+    var hasOwnProperty = Object.prototype.hasOwnProperty.call;
 
     function getAllMatches(format, config) {
         var match = void 0;
@@ -29,7 +27,7 @@ var __TYPE_OF_U = typeof Symbol === "function" && typeof Symbol.iterator === "sy
         var currentPos = void 0;
         var newFormat = format.replace(REGEX, function (match, key, times, index) {
             string = config[key];
-            if (!hasOwnProperty.call(config, key)) throw new Error("[custom-unique] One or more placeholder(s) in format (second arg) doesn't exist in config.");
+            if (!hasOwnProperty(config, key)) throw new Error("[custom-unique] One or more placeholder(s) in format (second arg) doesn't exist in config.");
             currentPos = prevMatch !== undefined ? prevMatch.pos + prevMatch.times + (index - beforeLastPos) : index;
             matches.push({
                 key: key,
@@ -57,9 +55,9 @@ var __TYPE_OF_U = typeof Symbol === "function" && typeof Symbol.iterator === "sy
         var config = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : undefined;
         var format = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : undefined;
 
-        if (typeof format !== "string" || format instanceof String || format.length < 1) throw new Error("The second argument (format) is invalid.");
+        if ((typeof format !== "string" || format instanceof String) || format.length < 1) throw new Error("The second argument (format) is invalid.");
 
-        if ((typeof config === 'undefined' ? 'undefined' : __TYPE_OF_U(config)) !== "object") throw new Error("The first argument (config) is invalid.");
+        if (typeof config !== "object") throw new Error("The first argument (config) is invalid.");
 
         var compiled = getAllMatches(format, config);
 

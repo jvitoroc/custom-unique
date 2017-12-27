@@ -4,9 +4,9 @@
   "description": "Generate custom and random unique strings",
   "main": "index.min.js",
   "scripts": {
-    "test": "test",
-    "build": "npx babel src/index.js --out-file index.js",
-    "watch": "npx babel src/index.js --watch --out-file index.js",
+    "test": "jest",
+    "build": "npx babel src/index-deprecated.js --out-file index.js",
+    "watch": "npx babel src/index-deprecated.js --watch --out-file index.js",
     "minify": "npx minify index.js --out-file index.min.js"
   },
   "repository": {
@@ -33,6 +33,7 @@
     "babel-cli": "^6.26.0",
     "babel-minify": "^0.2.0",
     "babel-preset-env": "^1.6.1",
-    "babel-preset-minify": "^0.2.0"
+    "babel-preset-minify": "^0.2.0",
+    "jest": "^22.0.4"
   }
 }
