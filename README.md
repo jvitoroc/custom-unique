@@ -20,7 +20,7 @@ serialGen(); // 5593-chcg-3889-ccch
 #### function compile(config, format)
 Creates a function that returns random strings.
 
-Returning value: **function (prefix, sufix)**
+**Returning value:** function (prefix, sufix)
 * `config (Object)` An object containing all values that will replace the corresponding placeholders in `format`.
 * `format (String)` An string containing placeholders that will be replaced by random values composed by `config`.
 
