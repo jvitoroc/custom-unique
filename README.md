@@ -4,7 +4,7 @@ Generate custom and random unique strings.
 `npm install --save custom-unique`
 
 ## Examples
-```
+```javascript
 var customUnique = require('custom-unique');
 
 var gen = customUnique.compile({n: '1n4n68dma98560d', a: '1234567890'}, '((n))-((a))-((n))-((a))');
@@ -33,7 +33,7 @@ This reference will be replaced by a random value composed of chars from `config
 
 You can define the length yourself using this syntax: `((property)length)`.
 
-```
+```javascript
 var config = {ex: '123'};
 var format = '--((ex))--';
 
@@ -41,7 +41,7 @@ var gen = customUnique.compile(config, format);
 gen(); // --231--
 gen(); // --312--
 ```
-```
+```javascript
 var config = {ex: '123'};
 var format = '--((ex)10)--';
 
