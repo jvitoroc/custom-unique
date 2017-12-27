@@ -1,6 +1,6 @@
 {
   "name": "custom-unique",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Generate custom and random unique strings",
   "main": "index.min.js",
   "scripts": {
