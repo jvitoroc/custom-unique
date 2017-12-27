@@ -20,7 +20,7 @@ serialGen(); // 5593-chcg-3889-ccch
 #### function compile(config, format)
 Creates a function that returns random strings.
 
-**Returning value:** function (prefix, sufix)
+**Return value:** function ([prefix][, suffix])
 * `config (Object)` An object containing all values that will replace the corresponding placeholders in `format`.
 * `format (String)` An string containing placeholders that will be replaced by random values composed by `config`.
 
@@ -31,8 +31,6 @@ To reference a property from `config`, use the following syntax in format: `((pr
 
 This reference will be replaced by a random value composed of chars from `config[property]` , and it will have the length equal to `config[property]`.
 
-You can define the length yourself using this syntax: `((property)length)`.
-
 ```javascript
 var config = {ex: '123'};
 var format = '--((ex))--';
@@ -41,6 +39,8 @@ var gen = customUnique.compile(config, format);
 gen(); // --231--
 gen(); // --312--
 ```
+You can define the length yourself using this syntax: `((property)length)`.
+
 ```javascript
 var config = {ex: '123'};
 var format = '--((ex)10)--';
@@ -49,3 +49,14 @@ var gen = customUnique.compile(config, format);
 gen(); // --1132222311--
 gen(); // --1312313113--
 ```
+You may add prefixes and suffixes to the generated strings.
+```javascript
+var config = {ex: '123'};
+var format = '--((ex)10)--';
+
+var gen = customUnique.compile(config, format);
+gen('ID-'); // ID---2212122311--
+gen('', 'HI'); // --1312313113--HI
+gen('PHOTO', 'HI'); // PHOTO--1312313113--HI
+```
+
