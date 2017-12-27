@@ -84,3 +84,5 @@ let customUnique = (function() {
     };
 
 })();
+
+module.exports = customUnique;
