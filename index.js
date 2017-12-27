@@ -74,4 +74,4 @@ var customUnique = function () {
     };
 }();
 
-module.exports = customUnique;
+module.exports.customUnique = customUnique;

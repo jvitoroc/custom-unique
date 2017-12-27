@@ -1,4 +1,4 @@
-let customUnique = (function() {
+let customUnique = (() => {
 
     const REGEX = /\(\(\s*([^\(\)]*)\s*\)(\d*)?\)/g;
 
@@ -85,4 +85,4 @@ let customUnique = (function() {
 
 })();
 
-module.exports = customUnique;
+module.exports.customUnique = customUnique;
