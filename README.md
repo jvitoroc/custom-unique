@@ -25,10 +25,14 @@ Returning value: **function (prefix, sufix)**
 * `format (String)` An string containing placeholders that will be replaced by random values composed by `config`.
 
 ## Explanation
-`config`'s keys can be referenced in `format`. Those references will be replaced by a random string composed of chars from the value of that key.
-To reference a property from `config`, use the following syntax in format: `((property))`
-This reference will be replaced by a random value composed of chars from `config[property]` , and it will have the length equal to `config[property]`
+The keys of `config` can be referenced in `format`. Those references will be replaced by a random string composed of chars from the value of that key.
+
+To reference a property from `config`, use the following syntax in format: `((property))`.
+
+This reference will be replaced by a random value composed of chars from `config[property]` , and it will have the length equal to `config[property]`.
+
 You can define the length yourself using this syntax: `((property)length)`
+
 ```
 var config = {ex: '123'};
 var format = '--((ex))--';
