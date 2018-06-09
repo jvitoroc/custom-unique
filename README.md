@@ -18,7 +18,7 @@ serialGen(); // 5593-chcg-3889-ccch
 
 ## API
 #### function compile(config, format)
-Creates a function that returns random strings.
+Returns a function that returns random strings.
 
 **Return value:** function ([prefix][, suffix])
 * `config (Object)` An object containing all values that will replace the corresponding placeholders in `format`.
@@ -29,7 +29,7 @@ The keys of `config` can be referenced in `format`. Those references will be rep
 
 To reference a property from `config`, use the following syntax in format: `((property))`.
 
-This reference will be replaced by a random value composed of chars from `config[property]` , and it will have the length equal to `config[property]`.
+This reference will be replaced by a random value composed of chars from `config[property]` , and it will have same the length as `config[property]`, unless your set the length.
 
 ```javascript
 var config = {ex: '123'};
